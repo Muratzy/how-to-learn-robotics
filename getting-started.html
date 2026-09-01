@@ -1,0 +1,1409 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="面向「非科班出身」读者的中文机器人学自学指南">
+      
+      
+        <meta name="author" content="qqfly">
+      
+      
+        <link rel="canonical" href="https://muratzy.github.io/how-to-learn-robotics/getting-started.html">
+      
+      
+        <link rel="prev" href="prerequisite.html">
+      
+      
+        <link rel="next" href="dirty-your-hands.html">
+      
+      
+        
+          <link rel="alternate" href="https://learn-robotics.qqfly.net/" hreflang="zh">
+        
+          <link rel="alternate" href="https://en.learn-robotics.qqfly.net/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>机器人学入门 - 开源机器人学学习指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="index.html" title="开源机器人学学习指南" class="md-header__button md-logo" aria-label="开源机器人学学习指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            开源机器人学学习指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              机器人学入门
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="切换到夜间模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到夜间模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="切换到日间模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到日间模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="https://learn-robotics.qqfly.net/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="https://en.learn-robotics.qqfly.net/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Muratzy/how-to-learn-robotics" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Muratzy/how-to-learn-robotics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="开源机器人学学习指南" class="md-nav__button md-logo" aria-label="开源机器人学学习指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    开源机器人学学习指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Muratzy/how-to-learn-robotics" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Muratzy/how-to-learn-robotics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于本书
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="preface.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prerequisite.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    先修知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    入门
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器人学入门
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="getting-started.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器人学入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空间变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运动学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        雅可比矩阵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动力学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        控制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标定与辨识
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dirty-your-hands.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门实践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶导言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modern-robotics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    现代机器人学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3d-vision.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D 视觉
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="motion-planning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自主规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶实践
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="embodied-ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    具身智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dragon-quest.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    勇者斗恶龙
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考文献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="license.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版权说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空间变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运动学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        雅可比矩阵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动力学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        控制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标定与辨识
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">机器人学入门<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<p>对于入门部分，实际上就是了解如何让一个机械臂动起来。这方面其实已经研究非常成熟了，大家看上个世纪的教材就行，个人推荐的是 John Craig 的教材 《Introduction to Robotics: Mechanics and Control》<sup>[1]</sup>，在 <a href="https://www.youtube.com/watch?v=0yD3uBshJB0&amp;list=PL64324A3B147B5578">Youtube</a> 和 <a href="https://www.bilibili.com/video/BV15W411q78p/">Bilibili</a> 都可以找到斯坦福 Oussama Khatib 大神的视频，基本与 Craig 的教材内容相匹配。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/craig-book.webp" data-desc-position="bottom"><img src="images/craig-book.webp" width="300" alt="John Craig《Introduction to Robotics: Mechanics and Control》书封"></a>
+
+  <figcaption>John Craig《Introduction to Robotics: Mechanics and Control》书封</figcaption>
+
+</figure>
+<p>建议从 Craig 的教材开始就看英文版本，Google 一下，很容易找到 PDF 版本。作为一本入门教材，Craig 的教材是相当深入浅出的，配合着 Khatib 的视频，可以快速掌握机器人学的基础。</p>
+<p>我还在学校读博的时候，常对刚入学的师弟们说，「如果你把这本书的内容掌握了，就已经超过实验室绝大多数师兄师姐了。」</p>
+<p>然而，真正把教材啃下来的并不多。</p>
+<p>所以，我在这里要换个说法了，「如果你把这本书的内容掌握了，就可以胜任国内绝大多数工业机器人公司的开发工作了。」</p>
+<p>这里，我会大概把基础的知识列一下，时间有限，暂时不会过多展开。顺序可能不完全与 Craig 教材相同。</p>
+<h3 id="_2">空间变换<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<p>对于这部分内容，如果理论力学学得好的小伙伴，基本是没有太大问题的。问题是，有些小伙伴没有学好。</p>
+<p>当然，其中齐次变换什么的是机器人学中非常基础和重要的内容。其中需要注意的地方有：</p>
+<ul>
+<li>
+<p>熟悉坐标表示方式：坐标系 {B} 在坐标系 {A} 下的位姿为 <span class="arithmatex">\({^A_B}T\)</span> （当然也有其他习惯的表示方法，熟悉一种即可）；</p>
+</li>
+<li>
+<p>左乘与右乘矩阵的区别；</p>
+</li>
+<li>
+<p>了解旋转矩阵每一列的含义，学会如何通过「目测」写出两个坐标系之间的旋转矩阵；</p>
+</li>
+<li>
+<p>姿态的表示方式：RPY 角、各种欧拉角、轴角（Angle-Axis）表示、旋转矩阵，除了书上的内容，可以顺便看看四元数（Quaternion）表示，了解欧拉角的 Gimbal lock （知道三参数表示姿态会遇到的问题，才能更容易接受四元数这样的新事物）；</p>
+</li>
+<li>
+<p>如果有可能，试着了解一下角速度如何定义、如何计算。</p>
+</li>
+</ul>
+<h3 id="_3">运动学<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/robot-kinematics.webp" data-desc-position="bottom"><img src="images/robot-kinematics.webp" width="600" alt="ABB工业机械臂构型示意"></a>
+
+  <figcaption>ABB工业机械臂构型示意</figcaption>
+
+</figure>
+<p>对于机器人来说，一个基础工作就是计算运动学：</p>
+<ul>
+<li>正运动学：根据关节角度，计算机器人工具坐标系（末端）在机器人基座坐标系（底座）下的位姿；</li>
+<li>逆运动学：给定一个末端位姿，计算达到这个位姿的关节角度。</li>
+</ul>
+<p>前面，你知道了可以用一个 4x4 矩阵来描述两个坐标系之间的关系。对于机器人正运动学，如果我们知道每个连杆两两之间的坐标变换，就可以通过矩阵乘法计算出最后的末端位姿了。</p>
+<p>为了方便计算两个连杆之间的相对位姿，你就需要学习一个叫做 DH 的建模方法，简而言之，就是按照一定规则建立每个关节坐标系，然后每个坐标系可以用四个参数（DH参数）来确定。</p>
+<p>当然，你网上一搜，就会发现 DH 也有好几种，什么 Standard DH， Modified DH 之类的。</p>
+<p>这不重要，你只要知道它是帮你确定两个连杆之间的相对关系就行。不妨掌握 Craig 书上的那种就行（Wikipedia上称为 Modified DH)：</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/modified-dh.webp" data-desc-position="bottom"><img src="images/modified-dh.webp" width="500" alt="Modified DH 参数与坐标系建立"></a>
+
+  <figcaption>Modified DH 参数与坐标系建立</figcaption>
+
+</figure>
+<p>1）建立坐标系：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(z_i\)</span> 轴与第 <span class="arithmatex">\(i\)</span> 个关节重合，关节转动方向遵照右手定律；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(x_i\)</span> 平行于 <span class="arithmatex">\(z_i\)</span> 和 <span class="arithmatex">\(z_{i+1}\)</span> 的公垂线：<span class="arithmatex">\(x_i = z_i \times z_{i+1}\)</span>。如果两 <span class="arithmatex">\(z\)</span> 轴平行，则让 <span class="arithmatex">\(x_i\)</span> 从 <span class="arithmatex">\(z_{i}\)</span> 指向 <span class="arithmatex">\(z_{i+1}\)</span>；</p>
+</li>
+<li>
+<p>有了 <span class="arithmatex">\(x\)</span>、 <span class="arithmatex">\(z\)</span> 轴后，就可以用右手定律定义 <span class="arithmatex">\(y\)</span> 轴方向。</p>
+</li>
+<li>
+<p>除了与每个关节固连的坐标系外，还有可能额外在机器人基座 {B} 与末端工具 {E} 上固连两个坐标系。</p>
+</li>
+</ul>
+<p>2）计算 DH 参数:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(a_i\)</span> 是沿着 <span class="arithmatex">\(x_i\)</span>，从 <span class="arithmatex">\(z_i\)</span> 到 <span class="arithmatex">\(z_{i+1}\)</span> 的距离；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\alpha_i\)</span> 是绕着 <span class="arithmatex">\(x_i\)</span>，从 <span class="arithmatex">\(z_i\)</span> 到 <span class="arithmatex">\(z_{i+1}\)</span> 的角度；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(d_i\)</span> 是沿着 <span class="arithmatex">\(z_i\)</span>，从 <span class="arithmatex">\(x_{i-1}\)</span> 到 <span class="arithmatex">\(x_i\)</span> 的距离；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\theta_i\)</span> 是绕着 <span class="arithmatex">\(z_i\)</span>，从 <span class="arithmatex">\(x_{i-1}\)</span> 到 <span class="arithmatex">\(x_i\)</span> 的角度。</p>
+</li>
+</ul>
+<p>3）计算变换矩阵：</p>
+<div class="arithmatex">\[{^i_{i-1}}T = Rot(x_{i-1}, \alpha_{i-1}) \cdot Trans(x_{i-1},a_{i-1}) \cdot Rot(z_i, \theta_i) \cdot Trans(z_i, d_i)\]</div>
+<div class="arithmatex">\[{^i_{i-1}}T=\begin{bmatrix}cos(\theta_i)&amp;-sin(\theta_i)&amp;0&amp;a_{i-1}\\sin(\theta_i)cos(\alpha_{i-1})&amp;cos(\theta_i)cos(\alpha_{i-1})&amp;-sin(\alpha_{i-1})&amp;-d_isin(\alpha_{i-1})\\sin(\theta_i)sin(\alpha_{i-1})&amp;cos(\theta_i)sin(\alpha_{i-1})&amp;cos(\alpha_{i-1})&amp;d_icos(\alpha_{i-1})\\0&amp;0&amp;0&amp;1\end{bmatrix}\]</div>
+<p>4）正解：</p>
+<div class="arithmatex">\[{^b_e}{T}={^b_1}T\cdot{^1_2}T\cdot{...}\cdot{^n_e}T\]</div>
+<p>5）逆解：</p>
+<p>就是通过不断调整（左乘与右乘）上面几个矩阵的位置，尝试找到可以单独求解的未知数即可。虽然有些繁琐，但是各位初学者一定要亲手推一遍经典六轴机械臂的运动学逆解公式，并<strong>编程实现</strong>。</p>
+<h3 id="_4">雅可比矩阵<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>雅可比矩阵 <span class="arithmatex">\(J\)</span> 是机器人学中一个非常重要的东西。它表示机器人关节速度 <span class="arithmatex">\(\dot{q}\)</span> 与末端速度 <span class="arithmatex">\(\dot{x}\)</span> 之间的关系:</p>
+<div class="arithmatex">\[\dot{x}=J\cdot \dot{q}\]</div>
+<ul>
+<li>
+<p>如果你前面没有弄清楚角速度，建议在这章仔细思考。例如，「为什么不能直接对欧拉角求导获得速度？」；</p>
+</li>
+<li>
+<p>了解教材中的雅可比计算方式，并思考「是否可以直接对运动学正解的结果求偏导？」（可以参考我的一个知乎回答 <a href="https://www.zhihu.com/question/531815112/answer/2476607222">《机器人微分运动学中的姿态向量是什么？》</a>）</p>
+</li>
+<li>
+<p>这边需要掌握的就是它的计算方法了，<strong>一定要</strong>编程计算机器人的雅可比矩阵；</p>
+</li>
+<li>
+<p>如果你用 Matlab 或 Python，你可以利用他们的符号运算工具来验证我上面几个问题。从而加深对角速度的理解。</p>
+</li>
+<li>
+<p>（PS：姿态和角速度无法直观理解很正常，因为它们不是在笛卡尔空间内，等后面学到更多数学，你们才能真正理解它。）；</p>
+</li>
+<li>
+<p>如果你了解虚功原理，那么你又会知道雅可比也可以表示末端力与关节力矩的关系（这在以后力控等方面很有用）。</p>
+</li>
+</ul>
+<p>这时候，你有了雅可比矩阵，你就会发现，你知道怎么通过调节角度来控制末端运动了。这时候我们再回头看运动学逆解的问题。你会发现：「让机器人末端朝着目标位姿运动不就可以了？」。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/jacobian-ik.webp" data-desc-position="bottom"><img src="images/jacobian-ik.webp" width="500" alt="基于雅可比迭代的数值逆解示意"></a>
+
+  <figcaption>基于雅可比迭代的数值逆解示意</figcaption>
+
+</figure>
+<p>其中，末端位姿误差为 <span class="arithmatex">\(\Delta x = x - \hat{x}\)</span>；由雅可比反解出关节增量，再不断迭代：</p>
+<div class="arithmatex">\[\Delta q = J^{\dagger}\Delta x,\qquad q_{k+1} = q_k + \Delta q\]</div>
+<p>是的，这就是机器人运动学的数值计算方式，你可以利用这个方法写一个机器人运动学的通用求解算法。具体可以看我在知乎上的回答 <a href="https://www.zhihu.com/question/41673569/answer/129670927">《MATLAB机器人工具箱中机器人逆解是如何求出来的》</a>。</p>
+<p>各位初学者<strong>务必</strong>亲手实现一遍这种算法，还是有些坑需要踩的。</p>
+<p>当然，这个方法很简洁，但是也有它本身的问题：</p>
+<ul>
+<li>计算速度慢，需要多次迭代；</li>
+<li>一次只能返回一组解；</li>
+<li>计算的结果、速度等，严重依赖初值的选取；</li>
+<li>可能会遇到奇异点等，结果无法收敛。</li>
+</ul>
+<p>这时候，你可以顺便去了解一些奇异（Singularity）的问题，理解奇异性是机器人构形相关的属性，无法通过建模方式来消除。</p>
+<h3 id="_5">动力学<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>我相信，80% 的小伙伴是在这一章放弃的。</p>
+<p>以牛顿-欧拉递推为例。<strong>前向迭代</strong>（i：0 → n−1）逐连杆向外算出各连杆的速度、加速度与惯性力/力矩：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+{}^{i+1}\omega_{i+1} &amp;= {}^{i+1}_{i}R\,{}^{i}\omega_i + \dot\theta_{i+1}\,{}^{i+1}\hat z_{i+1}\\
+{}^{i+1}\dot\omega_{i+1} &amp;= {}^{i+1}_{i}R\,{}^{i}\dot\omega_i + {}^{i+1}_{i}R\,{}^{i}\omega_i\times\dot\theta_{i+1}\,{}^{i+1}\hat z_{i+1} + \ddot\theta_{i+1}\,{}^{i+1}\hat z_{i+1}\\
+{}^{i+1}\dot v_{i+1} &amp;= {}^{i+1}_{i}R\big({}^{i}\dot\omega_i\times{}^{i}P_{i+1} + {}^{i}\omega_i\times({}^{i}\omega_i\times{}^{i}P_{i+1}) + {}^{i}\dot v_i\big)\\
+{}^{i+1}\dot v_{C_{i+1}} &amp;= {}^{i+1}\dot\omega_{i+1}\times{}^{i+1}P_{C_{i+1}} + {}^{i+1}\omega_{i+1}\times({}^{i+1}\omega_{i+1}\times{}^{i+1}P_{C_{i+1}}) + {}^{i+1}\dot v_{i+1}\\
+{}^{i+1}F_{i+1} &amp;= m_{i+1}\,{}^{i+1}\dot v_{C_{i+1}}\\
+{}^{i+1}N_{i+1} &amp;= {}^{C_{i+1}}I_{i+1}\,{}^{i+1}\dot\omega_{i+1} + {}^{i+1}\omega_{i+1}\times{}^{C_{i+1}}I_{i+1}\,{}^{i+1}\omega_{i+1}
+\end{aligned}
+\]</div>
+<p><strong>反向迭代</strong>（i：n → 1）逐连杆向内回传力/力矩，并取出各关节力矩：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+{}^{i}f_i &amp;= {}^{i}_{i+1}R\,{}^{i+1}f_{i+1} + {}^{i}F_i\\
+{}^{i}n_i &amp;= {}^{i}N_i + {}^{i}_{i+1}R\,{}^{i+1}n_{i+1} + {}^{i}P_{C_i}\times{}^{i}F_i + {}^{i}P_{i+1}\times{}^{i}_{i+1}R\,{}^{i+1}f_{i+1}\\
+\tau_i &amp;= {}^{i}n_i^{\top}\,{}^{i}\hat z_i
+\end{aligned}
+\]</div>
+<p>对于多轴机器人的动力学，不论是采用牛顿欧拉还是拉格朗日法，都会<strong>显得</strong>异常复杂。再加上如果之前没学好理论力学，那么基本上是举步维艰了。</p>
+<p>所以，我个人认为，先对这个部分有个基本概念就行，暂时不需要直接去碰六轴机器人的动力学：</p>
+<ul>
+<li>
+<p>会用拉格朗日法计算三轴机械臂的动力学模型（三轴的求解还是在可接受范围内的）；</p>
+</li>
+<li>
+<p>用牛顿欧拉法计算三轴机械臂的动力学模型，一定要<strong>编程实现</strong>（因为在高自由度情况下，牛顿法更容易通过编程实现，未来如果要做动力学，更可能是用牛顿欧拉、而非拉格朗日）；</p>
+</li>
+<li>
+<p>了解转动惯量之类的物理意义，（在上面编程实现过程中，肯定会有相应的问题发生，如角速度与转动惯量的参考坐标系问题）；</p>
+</li>
+<li>
+<p>大概知道机器人动力学都包含哪些部分（公式的形式、连杆动力学、关节动力学、重力影响、关节摩擦力、电机动力学等）。</p>
+</li>
+</ul>
+<h3 id="_6">控制<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>这时候，我们有了各种工具来求解机器人的运动学问题了，我们知道要让机器人到达任意状态的关节角度值。但是，如何让这些关节动起来？</p>
+<p>首先，我们要知道，日常生活中的世界还是受牛顿力学统治的。</p>
+<div class="arithmatex">\[F = m \cdot a\]</div>
+<p>要让一个东西动起来，就要给它施力。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/slider.svg" data-desc-position="bottom"><img src="images/slider.svg" width="640" alt="滑块受力与运动示意"></a>
+
+  <figcaption>滑块受力与运动示意</figcaption>
+
+</figure>
+<p>如果我们给定一个滑块的运动轨迹 <span class="arithmatex">\(s(t)\)</span>，我们就可以计算出它整个轨迹的加速度 <span class="arithmatex">\(\ddot{s}(t)\)</span>，进而计算出让滑块按照我们设想运动所需的力 <span class="arithmatex">\(F(t) = m \cdot \ddot{s}(t)\)</span>。</p>
+<p>换句话说，我们可以通过动力学计算出让机器人运动所需的每个关节力矩。</p>
+<p>而关节力矩，可以通过电机提供，对于直流电机，输出力矩与电流成正比。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/dc-motor.webp" data-desc-position="bottom"><img src="images/dc-motor.webp" width="500" alt="直流电机原理图"></a>
+
+  <figcaption>直流电机原理图</figcaption>
+
+</figure>
+<p>但是，有几个问题：</p>
+<ul>
+<li>
+<p>动力学好难算；</p>
+</li>
+<li>
+<p>动力学参数好不准（我怎么知道杆多重、转动惯量不好测、关节摩擦力不好算）；</p>
+</li>
+<li>
+<p>还可能有各种外力（抓持的物体质量，关节动力学属性变化等）。</p>
+</li>
+</ul>
+<p>这就是控制算法的工作了。于是，大家会接触到传说的 PID 控制。通过对目标位置与当前实际位置的误差进行处理得到控制量。直观上可以这么理解：位置高了，我就往降低方向给指令；速度快了，我就给它减速的指令；有误差，我就持续往减少误差方向加控制量。不依赖精准的模型，简单有效，一度成为工业控制的通解。</p>
+<p>但是，又有问题：如果我们直接把关节目标位置发给 PID 控制器，那么每次都是一次突变（阶跃响应），真实物理世界里的硬件都有惯性，那么这种突变就容易引起超调、振荡等问题。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/step-and-traj.svg" data-desc-position="bottom"><img src="images/step-and-traj.svg" width="680" alt="阶跃响应与轨迹跟踪对比"></a>
+
+  <figcaption>阶跃响应与轨迹跟踪对比</figcaption>
+
+</figure>
+<p>但是，感觉好像还是有什么不对，机器人运动好像是有加减速过程（右）的，而非一次阶跃（左）。</p>
+<p>于是，这里就需要引入所谓的「轨迹规划」概念了，根据电机性能、设计一段相对平顺的加减速轨迹去到达目标位置，减少每个控制周期的阶跃量。这就有了所谓的「T形曲线」（速度连续）、「S形曲线」（加速度连续）等轨迹类型（Trajectory Profile）。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/traj-planning.webp" data-desc-position="bottom"><img src="images/traj-planning.webp" width="500" alt="带加减速过程的轨迹规划示意"></a>
+
+  <figcaption>带加减速过程的轨迹规划示意</figcaption>
+
+</figure>
+<p>这时候你又想到，既然 PID 和动力学都可以计算让机器人运动所需的力/控制指令，但是动力学模型不太准、而 PID 依赖误差、始终滞后，那么有没有可能把它们结合在一起，先用动力学算一个基本准确的力矩，然后用 PID 消除不准确性造成的微小误差，而不是去计算整个偏差？</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/feedforward-pid.svg" data-desc-position="bottom"><img src="images/feedforward-pid.svg" width="700" alt="基于动力学前馈的 PID 控制框图"></a>
+
+  <figcaption>基于动力学前馈的 PID 控制框图</figcaption>
+
+</figure>
+<p>是的，于是你发明了基于动力学前馈的 PID 控制算法。</p>
+<p>至此，Craig 书上重要的内容基本过了一遍了。剩下的其他一些部分，可以大概浏览一下，因为有不少内容已经比较旧了。</p>
+<h3 id="_7">标定与辨识<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>虽然，这部分不属于 Craig 书籍内容，但却是工业机械臂高精度、高速度运转的一个关键要点，并且也相对成熟，所以补充进来。</p>
+<p>前面，我们「发明了」基于动力学前馈的 PID 控制算法，很容易发现，前馈的效果，很大因素取决于你的动力学模型准不准——运动学参数、转动惯量、质心位置……这些数字从哪里来？</p>
+<p>从图纸上来？虽然很多机器人公司都是这么干的，大多时候，也比没有前馈的 PID 控制效果好。但是，遗憾的是，由于机器人加工、装配总有偏差，实际参数与图纸并不一致。让模型贴近真机，就是<strong>标定</strong>（Calibration）与<strong>辨识</strong>（Identification）要做的事。这两件事在教材里往往一笔带过，但在实际工程中几乎躲不开，所以这里单独说一说。好消息是，它们的套路高度一致：<strong>构造一个误差方程，然后用最小二乘之类的方法求解</strong>。</p>
+<p><strong>运动学标定</strong>。以经典的「多点触碰标定」为例：让机械臂末端以不同的姿态反复触碰同一个固定点，以固定点为原点建立坐标系 <span class="arithmatex">\(\{P\}\)</span>，则末端位置满足 <span class="arithmatex">\({}^{P}p = f(q, \phi)\)</span>，其中 <span class="arithmatex">\(\phi\)</span> 是全部 DH 参数。由于末端始终与固定点接触，就有了误差方程：</p>
+<div class="arithmatex">\[\Delta p = 0 - {}^{P}p = J\,\Delta\phi\]</div>
+<p>其中 <span class="arithmatex">\(J\)</span> 是 <span class="arithmatex">\(f\)</span> 对参数 <span class="arithmatex">\(\phi\)</span> 的雅可比。测量几组数据，用高斯牛顿之类的方法迭代求解，就得到了机器人当前的运动学参数。用「robot kinematics calibration」之类的关键词可以搜到大量文献。</p>
+<p><strong>动力学辨识</strong>。多轴机器人的动力学方程虽然复杂，但可以整理成对参数<strong>线性</strong>的形式：</p>
+<div class="arithmatex">\[\tau = A(q, \dot{q}, \ddot{q})\,\Theta\]</div>
+<p>其中 <span class="arithmatex">\(\Theta\)</span> 是一组待辨识的参数组合（base parameters set）。你看，这就是熟悉的 <span class="arithmatex">\(Ax=b\)</span>，最小二乘就能求解。</p>
+<p>实施时有几个细节：
+- 激励轨迹不能随便选，例如一个平面旋转关节的机械臂，如果辨识用的轨迹使得 <span class="arithmatex">\(q_1=q_2\)</span>，那么就无法辨识出有效值（对应矩阵不满秩）；
+- 角速度、角加速度没法直接测量，需要通过滤波算法或者观测器计算得到；
+- 摩擦力如果采用线性模型，可以放进上式一起辨识。系统的介绍可以看 Khalil 的教材《Modeling, identification and control of robots》<sup>[2]</sup>。</p>
+<p>这套东西我在一个单轴直驱平台上完整做过一遍：动力学参数直接从 SolidWorks 里读出来，计算力矩与实测力矩的误差有 50%；做完参数辨识，误差立马降到了 8% 以内。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/single-joint-ident-fit.webp" data-desc-position="bottom"><img src="images/single-joint-ident-fit.webp" width="500" alt="单轴平台参数辨识后，计算力矩与实测力矩基本重合"></a>
+
+  <figcaption>单轴平台参数辨识后，计算力矩与实测力矩基本重合</figcaption>
+
+</figure>
+<p>有了准确的动力学模型，好玩的事情就来了：不加任何传感器，就能直接用驱动器反馈的<strong>电流</strong>估计外力矩。灵敏到什么程度呢：一张纸碰上去，机械臂就能停下来。检测到碰撞后，再切换成「重力补偿 + 小增益 PD」，就是协作机器人的拖动示教（Hand Guiding）。后来，我又在 Baxter 上把整臂的版本做了一遍。完整的实验过程可以看<a href="https://mp.weixin.qq.com/s/hkZjZItqyfwG6k0cwRm9kA">《听说现在协作机器人很火，所以我也做了 1/7 个》</a>与<a href="https://mp.weixin.qq.com/s/1qyXJ01n0mcMyRX6ZB6jOQ">《我把剩下的 6/7 协作机器人给做完了》</a>。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/collision-detection.webp" data-desc-position="bottom"><img src="images/collision-detection.webp" width="500" alt="基于动力学模型与电流反馈的碰撞检测"></a>
+
+  <figcaption>基于动力学模型与电流反馈的碰撞检测</figcaption>
+
+</figure>
+<p>不过，在你兴冲冲地准备在自己的机器人上复现之前，我得提醒一句：<strong>摩擦力，入坑需谨慎</strong>。上面的实验是直驱平台，可以不考虑摩擦力。换一个极端例子：100kg 负载、86 减速比的行星齿轮传动，不考虑摩擦力时，动力学模型完全无法拟合力矩曲线；而即使想把摩擦力辨识出来，尝试几种摩擦力经验公式，也没办法完全消除误差——到目前为止，我们还没有一个通用、权威的摩擦力模型。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/friction-fit-fail.webp" data-desc-position="bottom"><img src="images/friction-fit-fail.webp" width="500" alt="大减速比传动下，不考虑摩擦力的模型完全无法拟合实测力矩"></a>
+
+  <figcaption>大减速比传动下，不考虑摩擦力的模型完全无法拟合实测力矩</figcaption>
+
+</figure>
+<p>这就是为什么不少协作机器人（如 KUKA iiwa、Franka）选择在关节里加<strong>力矩传感器</strong>：直接在减速器输出端测量力矩，跳过传动系统，绕开摩擦力。具体方案各有取舍：应变片式（如 Kinova）、双编码器式（利用减速器两端编码器的转角差估计力矩）、串联弹性驱动器 SEA（如 Baxter）；也有厂商（如 UR）坚持电流估计 + 精细辨识的无传感器路线。</p>
+<p>最后：如果你按照「控制」一节的建议搭过单轴伺服平台，那么本节的所有实验——辨识、碰撞检测、拖动示教——都可以在它上面复现一遍，强烈建议试试。而机器人一旦与环境发生持续接触（打磨、装配），只靠碰撞检测就不够了，你需要去了解<strong>力控</strong>、<strong>阻抗控制</strong>这些关键词，同样推荐 Khalil 的教材<sup>[2]</sup>。</p>
+<p>如果暂时无法亲手实验，那么，强力推荐 Dragan Kostic 的一篇论文，以一个三自由度机械臂为例，详细地演示了如何构建和辨识获得高精度机器人模型。论文为：<a href="https://www.researchgate.net/profile/Dragan-Kostic/publication/3332598_Modeling_and_Identification_for_High-Performance_Robot_Control_An_RRR-Robotic_Arm_Case_Study/links/0c960528a618d975cc000000/Modeling-and-Identification-for-High-Performance-Robot-Control-An-RRR-Robotic-Arm-Case-Study.pdf">Modeling and identification for high-performance robot control: An RRR-robotic arm case study</a>。</p>
+<figure>
+
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/kostic-rrr-paper.webp" data-desc-position="bottom"><img src="images/kostic-rrr-paper.webp" width="500" alt="Kostić 等人的 RRR 机械臂建模与辨识论文（IEEE TCST 2004）"></a>
+
+  <figcaption>Kostić 等人的 RRR 机械臂建模与辨识论文（IEEE TCST 2004）</figcaption>
+
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
+        
+          
+          <a href="prerequisite.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 先修知识">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                先修知识
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="dirty-your-hands.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 入门实践">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                入门实践
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      原作 <a href="https://github.com/qqfly/how-to-learn-robotics" target="_blank" rel="noopener">qqfly/how-to-learn-robotics</a> · 本学习镜像未修改正文，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> 许可协议 · 更新 2026-09-01 · <a href="https://github.com/qqfly/how-to-learn-robotics/commit/bb78521">bb78521</a>
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "navigation.instant", "navigation.instant.progress", "navigation.top", "navigation.footer", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="javascripts/mathjax/tex-svg.js"></script>
+      
+        <script src="javascripts/lang-switch.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
